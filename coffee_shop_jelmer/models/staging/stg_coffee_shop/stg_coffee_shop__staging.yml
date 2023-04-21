@@ -1,0 +1,31 @@
+version: 2
+
+models:
+  - name: stg_orders
+    columns:
+      - name: id
+        description: "Unique product ID"
+        tests:
+          - unique
+          - not null
+  - name: stg_order_items
+    columns:
+      - name: id
+        description: "Unique item id in an order"
+        tests:
+          - unique
+          - not null
+  - name: stg_products
+    columns:
+      - name: id
+        description: "Unique product id"
+        tests:
+          - unique
+          - not null
+  - name: product_prices
+    columns:
+      - name: id
+        description: "Unique price per product id"
+        tests:
+          - unique
+          - not null
