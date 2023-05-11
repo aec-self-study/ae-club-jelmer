@@ -1,6 +1,6 @@
 with total_orders as (
     select 
-        timestamp_trunc(created_at, week) as week_of
+        timestamp_trunc(created_at, week) as week_date
         , sum(total) as weekly_total_revenue
         , order_items.product_id
     from {{ source('coffee_shop', 'orders')}} orders
@@ -10,7 +10,7 @@ with total_orders as (
 
 product_category as (
     select total_orders.weekly_total_revenue
-        , total_orders.week_of
+        , total_orders.week_date
         , category as product_category
     from {{ source('coffee_shop', 'products')}} products
     left join total_orders on total_orders.product_id = products.id
