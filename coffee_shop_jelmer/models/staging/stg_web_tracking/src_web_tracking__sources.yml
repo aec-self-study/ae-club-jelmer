@@ -1,0 +1,13 @@
+version: 2
+ 
+sources:
+  - name: web_tracking
+    project: analytics-engineers-club
+    schema: web_tracking
+    tables:
+      - name: pageviews
+        columns:
+          - name: id
+            description: "Visitor id which changes per session"
+          - name: customer_id
+            description: "Customer id when visitor logged into account"
